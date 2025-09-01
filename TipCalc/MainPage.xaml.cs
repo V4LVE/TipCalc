@@ -8,7 +8,6 @@
         public MainPage()
         {
             InitializeComponent();
-            CalculateTip();
         }
 
         void OnBillChanged(object sender, TextChangedEventArgs e)
