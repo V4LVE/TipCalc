@@ -42,7 +42,7 @@
         }
         void OnRoundDownClicked(object sender, EventArgs e)
         {
-            var total = bill + bill * tipPercentage / 100;
+            var total = bill + (bill * tipPercentage / 100);
             var roundedTotal = Math.Floor(total / 10) * 10; // round down to nearest 10
             TipLabel.Text = $"Tip: {(roundedTotal - bill):0.00} kr.";
             TotalLabel.Text = $"Total: {roundedTotal:0.00} kr.";
@@ -50,7 +50,7 @@
 
         void OnRoundUpClicked(object sender, EventArgs e)
         {
-            var total = bill + bill * tipPercentage / 100;
+            var total = bill + (bill * tipPercentage / 100);
             var roundedTotal = Math.Ceiling(total / 10) * 10; // round up to nearest 10
             TipLabel.Text = $"Tip: {(roundedTotal - bill):0.00} kr.";
             TotalLabel.Text = $"Total: {roundedTotal:0.00} kr.";
