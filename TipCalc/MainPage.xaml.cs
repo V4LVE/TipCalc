@@ -61,9 +61,9 @@
             var random = new Random();
             int maxTip = (int)Math.Ceiling(bill);
             if (maxTip < 1)
-                maxTip = 1;
+                maxTip = 0;
 
-            var tip = random.Next(1, maxTip + 1); // random tip between 1 and maxTip inclusive
+            var tip = random.Next(0, maxTip); // random tip between 1 and maxTip inclusive
 
             var total = bill + tip;
             var percentage = bill > 0 ? (tip / bill) * 100 : 0;
