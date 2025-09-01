@@ -12,7 +12,7 @@
 
         void OnBillChanged(object sender, TextChangedEventArgs e)
         {
-            if (decimal.TryParse(BillEntry.Text, out var newBill))
+            if (decimal.TryParse(BillEntry.Text, out var newBill) && newBill > 0)
                 bill = newBill;
             else
                 bill = 0;
