@@ -57,6 +57,24 @@
             TotalLabel.Text = $"Total: {roundedTotal:0.00} kr.";
         }
 
+        void OnFeelingLuckyClicked(object sender, EventArgs e)
+        {
+            var random = new Random();
+            int maxTip = (int)Math.Ceiling(bill);
+            if (maxTip < 1)
+                maxTip = 1;
+
+            var tip = random.Next(1, maxTip + 1); // random tip between 1 and maxTip inclusive
+
+            var total = bill + tip;
+            var percentage = bill > 0 ? (tip / bill) * 100 : 0;
+
+            TipSlider.Value = tipPercentage;
+
+            TipLabel.Text = $"Tip: {tip:0.00} kr.";
+            TotalLabel.Text = $"Total: {total:0.00} kr.";
+        }
+
         void CalculateTip()
         {
             var tip = bill * tipPercentage / 100;

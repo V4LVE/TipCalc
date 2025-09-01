@@ -4,25 +4,26 @@
              x:Class="TipCalc.MainPage"
              Title="Home">
 
-    <VerticalStackLayout Padding="20" Spacing="15">
+    <VerticalStackLayout>
 
-        <Label Text="Bill" FontSize="18" />
+        <Label Text="Bill" />
         <Entry x:Name="BillEntry" Keyboard="Numeric" Placeholder="Enter amount"
                TextChanged="OnBillChanged"/>
 
-        <Label x:Name="TipLabel" Text="Tip: 0 kr." FontSize="16"/>
-        <Label x:Name="TotalLabel" Text="Total: 0 kr." FontSize="16"/>
+        <Label x:Name="TipLabel" Text="Tip: 0 kr."/>
+        <Label x:Name="TotalLabel" Text="Total: 0 kr."/>
 
-        <Label Text="Tip Percentage" FontSize="18"/>
+        <Label Text="Tip Percentage"/>
         <Slider x:Name="TipSlider" 
-                Minimum="0" Maximum="30" Value="15"
+                Minimum="0" Maximum="100" Value="15"
                 ValueChanged="OnTipPercentageChanged"/>
-        <Label x:Name="PercentageLabel" Text="15%" FontSize="16"/>
+        <Label x:Name="PercentageLabel" Text="15%"/>
 
         <Button Text="15%" Clicked="On15PercentClicked"/>
         <Button Text="20%" Clicked="On20PercentClicked"/>
         <Button Text="Round Down" Clicked="OnRoundDownClicked"/>
         <Button Text="Round Up" Clicked="OnRoundUpClicked"/>
+        <Button Text="Im Feeling Lucky" Clicked="OnFeelingLuckyClicked"/>
 
     </VerticalStackLayout>
 </ContentPage>
