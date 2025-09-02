@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using TipCalc.Views;
 
 namespace TipCalc
 {
@@ -8,9 +9,7 @@ namespace TipCalc
         {
             InitializeComponent();
 
-            BindingContext = this;
+            Routing.RegisterRoute(nameof(DetailsPage), typeof(DetailsPage));
         }
-
-        public ICommand HelpCommand => new Command<string>(async (url) => await Launcher.OpenAsync(url));
     }
 }

@@ -85,6 +85,13 @@
                     FontSize="16"
                     CornerRadius="20"
                     HeightRequest="45"/>
+
+            <Button Text="Gå til detaljer (modal)"
+        BackgroundColor="#6c5ce7"
+        TextColor="White"
+        CornerRadius="20"
+        HeightRequest="45"
+        Clicked="OpenDetailsButton_Clicked"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
