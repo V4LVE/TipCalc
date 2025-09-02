@@ -4,8 +4,4 @@
              x:Class="TipCalc.MainPage"
              Title="Home">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="About" Clicked="AboutToolbarItem_Clicked" />
-        <ToolbarItem Text="Feedback" Clicked="FeedbackToolbarItem_Clicked" />
-    </ContentPage.ToolbarItems>
 </ContentPage>
