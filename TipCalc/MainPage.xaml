@@ -4,39 +4,28 @@
              x:Class="TipCalc.MainPage"
              Title="Home">
 
-    <!--Bill Entry-->
-    <VerticalStackLayout Spacing="10">
-        <HorizontalStackLayout Spacing="10" Margin="0,0,0,20">
-            <Label Text="Bill" WidthRequest="100" VerticalOptions="Center"/>
-            <Entry x:Name="BillEntry" Keyboard="Numeric" Placeholder="Enter amount"
-       TextChanged="OnBillChanged" VerticalOptions="Center"/>
-        </HorizontalStackLayout>
-        
-        <Label x:Name="TipLabel" Text="Tip: 0 kr."/>
-        <Label x:Name="TotalLabel" Text="Total: 0 kr."/>
-        
-        <!--Percentage Slider and Label-->
-        <HorizontalStackLayout Spacing="10">
-            <Label Text="Tip Percentage"/>
-            <Label x:Name="PercentageLabel" Text="15%"/>
-        </HorizontalStackLayout>
-        
+    <Grid RowDefinitions="*,20,20,9*,20,10,*,*,*" ColumnDefinitions="*,*" RowSpacing="10">
+        <Label Text="Bill" VerticalOptions="Center" Grid.Column="0" Grid.Row="0" Padding="20,0,0,0"/>
+        <Entry x:Name="BillEntry" Keyboard="Numeric" Placeholder="Enter amount"
+TextChanged="OnBillChanged" VerticalOptions="Center" Grid.Column="1" Grid.Row="0"/>
+
+        <Label x:Name="TipLabel" Text="Tip: 0 kr." Grid.Column="0" Grid.Row="1" Padding="20,0,0,0"/>
+        <Label x:Name="TotalLabel" Text="Total: 0 kr." Grid.Column="0" Grid.Row="2" Padding="20,0,0,0"/>
+
+
+        <Label Text="Tip Percentage" Grid.Column="0" Grid.Row="4" HorizontalOptions="Start"/>
+        <Label x:Name="PercentageLabel" Text="15%" Grid.Column="1" Grid.Row="4" HorizontalOptions="End"/>
+
         <Slider x:Name="TipSlider" 
-                Minimum="0" Maximum="100" Value="15"
-                ValueChanged="OnTipPercentageChanged"/>
-        
-        <!--Static Tip Buttons-->
-        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" Margin="0,40,0,40">
-            <Button Text="15%" Clicked="On15PercentClicked" WidthRequest="150"/>
-            <Button Text="20%" Clicked="On20PercentClicked" WidthRequest="150"/>
-        </HorizontalStackLayout>
+        Minimum="0" Maximum="100" Value="15"
+        ValueChanged="OnTipPercentageChanged" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2"/>
 
-        <!--Round Buttons-->
-        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
-            <Button Text="Round Down" Clicked="OnRoundDownClicked" WidthRequest="150"/>
-            <Button Text="Round Up" Clicked="OnRoundUpClicked" WidthRequest="150"/>
-        </HorizontalStackLayout>
+        <Button Text="15%" Clicked="On15PercentClicked" WidthRequest="150" Grid.Column="0" Grid.Row="6"/>
+        <Button Text="20%" Clicked="On20PercentClicked" WidthRequest="150" Grid.Column="1" Grid.Row="6"/>
 
-        <Button Text="Im Feeling Lucky" Clicked="OnFeelingLuckyClicked" HorizontalOptions="Center" Margin="40"/>
-    </VerticalStackLayout>
+        <Button Text="Round Down" Clicked="OnRoundDownClicked" WidthRequest="150" Grid.Column="0" Grid.Row="7"/>
+        <Button Text="Round Up" Clicked="OnRoundUpClicked" WidthRequest="150" Grid.Column="1" Grid.Row="7"/>
+
+        <Button Text="Im Feeling Lucky" Clicked="OnFeelingLuckyClicked" HorizontalOptions="Center" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2"/>
+    </Grid>
 </ContentPage>
