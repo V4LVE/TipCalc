@@ -1,42 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TipCalc.MainPage"
-             Title="Home">
+<ContentPage
+    x:Class="TipCalc.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Home">
 
-    <!--Bill Entry-->
+    <!--  Bill Entry  -->
     <VerticalStackLayout Spacing="10">
-        <HorizontalStackLayout Spacing="10" Margin="0,0,0,20">
-            <Label Text="Bill" WidthRequest="100" VerticalOptions="Center"/>
-            <Entry x:Name="BillEntry" Keyboard="Numeric" Placeholder="Enter amount"
-       TextChanged="OnBillChanged" VerticalOptions="Center"/>
+        <HorizontalStackLayout Margin="0,0,0,20" Spacing="10">
+            <Label
+                Text="Bill"
+                VerticalOptions="Center"
+                WidthRequest="100" />
+            <Entry
+                x:Name="BillEntry"
+                Keyboard="Numeric"
+                Placeholder="Enter amount"
+                TextChanged="OnBillChanged"
+                VerticalOptions="Center" />
         </HorizontalStackLayout>
-        
-        <Label x:Name="TipLabel" Text="Tip: 0 kr."/>
-        <Label x:Name="TotalLabel" Text="Total: 0 kr."/>
-        
-        <!--Percentage Slider and Label-->
+
+        <Label x:Name="TipLabel" Text="Tip: 0 kr." />
+        <Label x:Name="TotalLabel" Text="Total: 0 kr." />
+
+        <!--  Percentage Slider and Label  -->
         <HorizontalStackLayout Spacing="10">
-            <Label Text="Tip Percentage"/>
-            <Label x:Name="PercentageLabel" Text="15%"/>
-        </HorizontalStackLayout>
-        
-        <Slider x:Name="TipSlider" 
-                Minimum="0" Maximum="100" Value="15"
-                ValueChanged="OnTipPercentageChanged"/>
-        
-        <!--Static Tip Buttons-->
-        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" Margin="0,40,0,40">
-            <Button Text="15%" Clicked="On15PercentClicked" WidthRequest="150"/>
-            <Button Text="20%" Clicked="On20PercentClicked" WidthRequest="150"/>
+            <Label Text="Tip Percentage" />
+            <Label x:Name="PercentageLabel" Text="15%" />
         </HorizontalStackLayout>
 
-        <!--Round Buttons-->
-        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
-            <Button Text="Round Down" Clicked="OnRoundDownClicked" WidthRequest="150"/>
-            <Button Text="Round Up" Clicked="OnRoundUpClicked" WidthRequest="150"/>
+        <Slider
+            x:Name="TipSlider"
+            Maximum="100"
+            Minimum="0"
+            ValueChanged="OnTipPercentageChanged"
+            Value="15" />
+
+        <!--  Static Tip Buttons  -->
+        <HorizontalStackLayout
+            Margin="0,40,0,40"
+            HorizontalOptions="Center"
+            Spacing="10">
+            <Button
+                Clicked="On15PercentClicked"
+                Text="15%"
+                WidthRequest="150" />
+            <Button
+                Clicked="On20PercentClicked"
+                Text="20%"
+                WidthRequest="150" />
         </HorizontalStackLayout>
 
-        <Button Text="Im Feeling Lucky" Clicked="OnFeelingLuckyClicked" HorizontalOptions="Center" Margin="40"/>
+        <!--  Round Buttons  -->
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+            <Button
+                Clicked="OnRoundDownClicked"
+                Text="Round Down"
+                WidthRequest="150" />
+            <Button
+                Clicked="OnRoundUpClicked"
+                Text="Round Up"
+                WidthRequest="150" />
+        </HorizontalStackLayout>
+
+        <Button
+            Margin="40"
+            Clicked="OnFeelingLuckyClicked"
+            HorizontalOptions="Center"
+            Text="Im Feeling Lucky" />
     </VerticalStackLayout>
 </ContentPage>
