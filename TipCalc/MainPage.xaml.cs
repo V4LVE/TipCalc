@@ -9,7 +9,7 @@
         {
             InitializeComponent();
         }
-
+        /*
         void OnBillChanged(object sender, TextChangedEventArgs e)
         {
             if (decimal.TryParse(BillEntry.Text, out var newBill) && newBill > 0)
@@ -82,5 +82,6 @@
             TipLabel.Text = $"Tip: {tip:0.00} kr.";
             TotalLabel.Text = $"Total: {total:0.00} kr.";
         }
+        */
     }
 }

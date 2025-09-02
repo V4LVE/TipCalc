@@ -2,33 +2,42 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TipCalc.MainPage"
-             Title="Home">
+             Title="Home"
+             Background="White">
 
-    <Grid RowDefinitions="*,auto,auto,9*,auto,auto,*,*,*" ColumnDefinitions="*,*" RowSpacing="10">
-        <Label Text="Bill" VerticalOptions="Center" Grid.Column="0" Grid.Row="0" Padding="20,0,0,0"/>
-        <Entry x:Name="BillEntry" Keyboard="Numeric" Placeholder="Enter amount"
-TextChanged="OnBillChanged" VerticalOptions="Center" Grid.Column="1" Grid.Row="0"/>
-        
-        <!--info-->
-        <Label x:Name="TipLabel" Text="Tip: 0 kr." Grid.Column="0" Grid.Row="1" Padding="20,0,0,0"/>
-        <Label x:Name="TotalLabel" Text="Total: 0 kr." Grid.Column="0" Grid.Row="2" Padding="20,0,0,0"/>
+    <Grid RowDefinitions="*,*,5*" ColumnDefinitions="*,*,*,*">
+        <BoxView Grid.Row="0" Grid.ColumnSpan="4" Color="DimGray" />
+        <BoxView Grid.Row="1" Grid.ColumnSpan="3" Color="DimGrey"/>
+        <Label Text="0" FontSize="100" Grid.Row="1" Grid.Column="4" HorizontalOptions="Fill" HorizontalTextAlignment="Center" BackgroundColor="DimGray"></Label>
+        <Grid Margin="0,5,0,0" Grid.ColumnSpan="4" Grid.Row="2" Grid.RowSpan="5" RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*,*,*" ColumnSpacing="5" RowSpacing="5">
+            <!--Row 0-->
+            <Label Text="C" FontSize="75" HorizontalOptions="Fill" HorizontalTextAlignment="Center" Background="LightGrey" TextColor="Black"></Label>
+            <Label Text="+/-" Grid.Column="1" FontSize="75" HorizontalOptions="Fill" HorizontalTextAlignment="Center" Background="LightGrey" TextColor="Black"></Label>
+            <Label Text="%" Grid.Column="2" FontSize="75" HorizontalOptions="Fill" HorizontalTextAlignment="Center" Background="LightGrey" TextColor="Black"></Label>
+            <Label Text="div" Grid.Column="3" FontSize="50" HorizontalOptions="Fill" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Background="Orange" TextColor="White"></Label>
 
-        <!--Tip info-->
-        <Label Text="Tip Percentage" Grid.Column="0" Grid.Row="4" HorizontalOptions="Start"/>
-        <Label x:Name="PercentageLabel" Text="15%" Grid.Column="1" Grid.Row="4" HorizontalOptions="End"/>
+            <!--Row 1-->
+            <Label Text="7" FontSize="75" HorizontalOptions="Fill" Grid.Row="1" HorizontalTextAlignment="Center" Background="LightGrey" TextColor="Black"></Label>
+            <Label Text="8" Grid.Column="1" Grid.Row="1" FontSize="75" HorizontalOptions="Fill" HorizontalTextAlignment="Center" Background="LightGrey" TextColor="Black"></Label>
+            <Label Text="9" Grid.Column="2" FontSize="75" Grid.Row="1" HorizontalOptions="Fill" HorizontalTextAlignment="Center" Background="LightGrey" TextColor="Black"></Label>
+            <Label Text="X" Grid.Column="3" FontSize="75" Grid.Row="1" HorizontalOptions="Fill" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Background="Orange" TextColor="White"></Label>
 
-        <Slider x:Name="TipSlider" 
-        Minimum="0" Maximum="100" Value="15"
-        ValueChanged="OnTipPercentageChanged" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2"/>
-    
-        <!--Static Tip Buttons-->
-        <Button Text="15%" Clicked="On15PercentClicked" WidthRequest="150" Grid.Column="0" Grid.Row="6"/>
-        <Button Text="20%" Clicked="On20PercentClicked" WidthRequest="150" Grid.Column="1" Grid.Row="6"/>
-        
-        <!--Round tip Buttons-->
-        <Button Text="Round Down" Clicked="OnRoundDownClicked" WidthRequest="150" Grid.Column="0" Grid.Row="7"/>
-        <Button Text="Round Up" Clicked="OnRoundUpClicked" WidthRequest="150" Grid.Column="1" Grid.Row="7"/>
+            <!--Row 2-->
+            <Label Text="4" FontSize="75" HorizontalOptions="Fill" Grid.Row="2" HorizontalTextAlignment="Center" Background="LightGrey" TextColor="Black"></Label>
+            <Label Text="5" Grid.Column="1" Grid.Row="2" FontSize="75" HorizontalOptions="Fill" HorizontalTextAlignment="Center" Background="LightGrey" TextColor="Black"></Label>
+            <Label Text="6" Grid.Column="2" FontSize="75" Grid.Row="2" HorizontalOptions="Fill" HorizontalTextAlignment="Center" Background="LightGrey" TextColor="Black"></Label>
+            <Label Text="-" Grid.Column="3" FontSize="75" Grid.Row="2" HorizontalOptions="Fill" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Background="Orange" TextColor="White"></Label>
 
-        <Button Text="Im Feeling Lucky" Clicked="OnFeelingLuckyClicked" HorizontalOptions="Center" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2"/>
+            <!--Row 3-->
+            <Label Text="1" FontSize="75" HorizontalOptions="Fill" Grid.Row="3" HorizontalTextAlignment="Center" Background="LightGrey" TextColor="Black"></Label>
+            <Label Text="2" Grid.Column="1" Grid.Row="3" FontSize="75" HorizontalOptions="Fill" HorizontalTextAlignment="Center" Background="LightGrey" TextColor="Black"></Label>
+            <Label Text="3" Grid.Column="2" FontSize="75" Grid.Row="3" HorizontalOptions="Fill" HorizontalTextAlignment="Center" Background="LightGrey" TextColor="Black"></Label>
+            <Label Text="+" Grid.Column="3" FontSize="75" Grid.Row="3" HorizontalOptions="Fill" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Background="Orange" TextColor="White"></Label>
+
+            <!--Row 4-->
+            <Label Text="0" FontSize="75" Grid.ColumnSpan="2" HorizontalOptions="Fill" Grid.Row="4" HorizontalTextAlignment="Center" Background="LightGrey" TextColor="Black"></Label>
+            <Label Text="." Grid.Column="2" FontSize="75" Grid.Row="4" HorizontalOptions="Fill" HorizontalTextAlignment="Center" Background="LightGrey" TextColor="Black"></Label>
+            <Label Text="=" Grid.Column="3" FontSize="75" Grid.Row="4" HorizontalOptions="Fill" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Background="Orange" TextColor="White"></Label>
+        </Grid>
     </Grid>
 </ContentPage>
