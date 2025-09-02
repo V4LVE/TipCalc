@@ -4,26 +4,35 @@
              x:Class="TipCalc.MainPage"
              Title="Home">
 
-    <VerticalStackLayout>
-
-        <Label Text="Bill" />
-        <Entry x:Name="BillEntry" Keyboard="Numeric" Placeholder="Enter amount"
-               TextChanged="OnBillChanged"/>
-
+    <VerticalStackLayout Spacing="10">
+        <HorizontalStackLayout Spacing="10" Margin="0,0,0,20">
+            <Label Text="Bill" WidthRequest="100" VerticalOptions="Center"/>
+            <Entry x:Name="BillEntry" Keyboard="Numeric" Placeholder="Enter amount"
+       TextChanged="OnBillChanged" VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+        
         <Label x:Name="TipLabel" Text="Tip: 0 kr."/>
         <Label x:Name="TotalLabel" Text="Total: 0 kr."/>
 
-        <Label Text="Tip Percentage"/>
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Tip Percentage"/>
+            <Label x:Name="PercentageLabel" Text="15%"/>
+        </HorizontalStackLayout>
+        
         <Slider x:Name="TipSlider" 
                 Minimum="0" Maximum="100" Value="15"
                 ValueChanged="OnTipPercentageChanged"/>
-        <Label x:Name="PercentageLabel" Text="15%"/>
 
-        <Button Text="15%" Clicked="On15PercentClicked"/>
-        <Button Text="20%" Clicked="On20PercentClicked"/>
-        <Button Text="Round Down" Clicked="OnRoundDownClicked"/>
-        <Button Text="Round Up" Clicked="OnRoundUpClicked"/>
-        <Button Text="Im Feeling Lucky" Clicked="OnFeelingLuckyClicked"/>
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" Padding="40">
+            <Button Text="15%" Clicked="On15PercentClicked" WidthRequest="150"/>
+            <Button Text="20%" Clicked="On20PercentClicked" WidthRequest="150"/>
+        </HorizontalStackLayout>
 
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+            <Button Text="Round Down" Clicked="OnRoundDownClicked" WidthRequest="150"/>
+            <Button Text="Round Up" Clicked="OnRoundUpClicked" WidthRequest="150"/>
+        </HorizontalStackLayout>
+
+        <Button Text="Im Feeling Lucky" Clicked="OnFeelingLuckyClicked" HorizontalOptions="Center" Margin="40"/>
     </VerticalStackLayout>
 </ContentPage>
