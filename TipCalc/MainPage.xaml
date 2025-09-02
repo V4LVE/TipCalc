@@ -4,31 +4,8 @@
              x:Class="TipCalc.MainPage"
              Title="Home">
 
-    <Grid RowDefinitions="*,auto,auto,9*,auto,auto,*,*,*" ColumnDefinitions="*,*" RowSpacing="10">
-        <Label Text="Bill" VerticalOptions="Center" Grid.Column="0" Grid.Row="0" Padding="20,0,0,0"/>
-        <Entry x:Name="BillEntry" Keyboard="Numeric" Placeholder="Enter amount"
-TextChanged="OnBillChanged" VerticalOptions="Center" Grid.Column="1" Grid.Row="0"/>
-        
-        <!--info-->
-        <Label x:Name="TipLabel" Text="Tip: 0 kr." Grid.Column="0" Grid.Row="1" Padding="20,0,0,0"/>
-        <Label x:Name="TotalLabel" Text="Total: 0 kr." Grid.Column="0" Grid.Row="2" Padding="20,0,0,0"/>
-
-        <!--Tip info-->
-        <Label Text="Tip Percentage" Grid.Column="0" Grid.Row="4" HorizontalOptions="Start"/>
-        <Label x:Name="PercentageLabel" Text="15%" Grid.Column="1" Grid.Row="4" HorizontalOptions="End"/>
-
-        <Slider x:Name="TipSlider" 
-        Minimum="0" Maximum="100" Value="15"
-        ValueChanged="OnTipPercentageChanged" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2"/>
-    
-        <!--Static Tip Buttons-->
-        <Button Text="15%" Clicked="On15PercentClicked" WidthRequest="150" Grid.Column="0" Grid.Row="6"/>
-        <Button Text="20%" Clicked="On20PercentClicked" WidthRequest="150" Grid.Column="1" Grid.Row="6"/>
-        
-        <!--Round tip Buttons-->
-        <Button Text="Round Down" Clicked="OnRoundDownClicked" WidthRequest="150" Grid.Column="0" Grid.Row="7"/>
-        <Button Text="Round Up" Clicked="OnRoundUpClicked" WidthRequest="150" Grid.Column="1" Grid.Row="7"/>
-
-        <Button Text="Im Feeling Lucky" Clicked="OnFeelingLuckyClicked" HorizontalOptions="Center" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2"/>
-    </Grid>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="About" Clicked="AboutToolbarItem_Clicked" />
+        <ToolbarItem Text="Feedback" Clicked="FeedbackToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
 </ContentPage>
