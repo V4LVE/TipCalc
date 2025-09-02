@@ -8,7 +8,10 @@
     xmlns:modals="clr-namespace:TipCalc.Views.Modals"
     Title="TipCalc">
 
-    <TabBar>
+    <TabBar >
+        <Tab Title="Home" Icon="home.png">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
         <Tab Title="About" Icon="info.png">
             <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
         </Tab>
@@ -16,5 +19,4 @@
             <ShellContent ContentTemplate="{DataTemplate modals:FeedbackPage}" />
         </Tab>
     </TabBar>
-
 </Shell>
