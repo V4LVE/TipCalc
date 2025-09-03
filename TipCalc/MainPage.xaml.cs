@@ -1,38 +1,57 @@
-﻿namespace TipCalc
+﻿using TipCalc.Models;
+
+namespace TipCalc
 {
     public partial class MainPage : ContentPage
     {
-        decimal bill = 0;
-        int tipPercentage = 15;
+        public Tip Tip { get; set; }
 
         public MainPage()
         {
             InitializeComponent();
+
+            Tip = new Tip
+            {
+                BillAmount = "100",
+                TipAmount = "0",
+                TotalAmount = "0",
+                TipPercentage = "15"
+            };
+            BindingContext = Tip;
         }
 
         void OnBillChanged(object sender, TextChangedEventArgs e)
         {
             if (decimal.TryParse(BillEntry.Text, out var newBill) && newBill > 0)
-                bill = newBill;
+                Tip.BillAmount = newBill.ToString();
             else
-                bill = 0;
+                Tip.BillAmount = "0";
 
-            CalculateTip();
+            CalculateTipAndUpdateUI();
+        }
+
+        void CalculateTipAndUpdateUI()
+        {
+            Tip.CalculateTip();
+
+            TipLabel.Text = $"Tip: {Tip.TipAmount} kr.";
+            TotalLabel.Text = $"Total: {Tip.TotalAmount} kr.";
+            TipSlider.Value = int.Parse(Tip.TipPercentage);
+            PercentageLabel.Text = $"{Tip.TipPercentage}%";
         }
 
         void OnTipPercentageChanged(object sender, ValueChangedEventArgs e)
         {
-            tipPercentage = (int)e.NewValue;
-            PercentageLabel.Text = $"{tipPercentage}%";
-            CalculateTip();
+            Tip.TipPercentage = e.NewValue.ToString();
+            PercentageLabel.Text = $"{Tip.TipPercentage}%";
+            CalculateTipAndUpdateUI();
         }
 
         async void On15PercentClicked(object sender, EventArgs e)
         {
             await DisplayAlert("Alert", "You have tipped 15%", "OK");
-            tipPercentage = 15;
-            TipSlider.Value = tipPercentage;
-            CalculateTip();
+            Tip.TipPercentage = "15";
+            CalculateTipAndUpdateUI();
         }
 
         async void On20PercentClicked(object sender, EventArgs e)
@@ -41,48 +60,35 @@
             if (!answer)
                 return;
 
-            tipPercentage = 20;
-            TipSlider.Value = tipPercentage;
-            CalculateTip();
+            Tip.TipPercentage = "20";
+            CalculateTipAndUpdateUI();
         }
         void OnRoundDownClicked(object sender, EventArgs e)
         {
-            var total = bill + (bill * tipPercentage / 100);
+            var total = double.Parse(Tip.BillAmount) + (double.Parse(Tip.BillAmount) * double.Parse(Tip.TipPercentage) / 100);
             var roundedTotal = Math.Floor(total / 10) * 10; // round down to nearest 10
-            TipLabel.Text = $"Tip: {(roundedTotal - bill):0.00} kr.";
+            TipLabel.Text = $"Tip: {(roundedTotal - double.Parse(Tip.BillAmount)):0.00} kr.";
             TotalLabel.Text = $"Total: {roundedTotal:0.00} kr.";
         }
 
         void OnRoundUpClicked(object sender, EventArgs e)
         {
-            var total = bill + (bill * tipPercentage / 100);
+            var total = double.Parse(Tip.BillAmount) + (double.Parse(Tip.BillAmount) * double.Parse(Tip.TipPercentage) / 100);
             var roundedTotal = Math.Ceiling(total / 10) * 10; // round up to nearest 10
-            TipLabel.Text = $"Tip: {(roundedTotal - bill):0.00} kr.";
+            TipLabel.Text = $"Tip: {(roundedTotal - double.Parse(Tip.BillAmount)):0.00} kr.";
             TotalLabel.Text = $"Total: {roundedTotal:0.00} kr.";
         }
 
         void OnFeelingLuckyClicked(object sender, EventArgs e)
         {
             var random = new Random();
-            int maxTip = (int)Math.Ceiling(bill);
+            int maxTip = (int)Math.Ceiling(double.Parse(Tip.BillAmount));
             if (maxTip < 1)
                 maxTip = 0;
 
             var tip = random.Next(0, maxTip); // random tip between 1 and maxTip inclusive
 
-            var total = bill + tip;
-            var percentage = bill > 0 ? (tip / bill) * 100 : 0;
-
-            TipSlider.Value = tipPercentage;
-
-            TipLabel.Text = $"Tip: {tip:0.00} kr.";
-            TotalLabel.Text = $"Total: {total:0.00} kr.";
-        }
-
-        void CalculateTip()
-        {
-            var tip = bill * tipPercentage / 100;
-            var total = bill + tip;
+            var total = double.Parse(Tip.BillAmount) + tip;
 
             TipLabel.Text = $"Tip: {tip:0.00} kr.";
             TotalLabel.Text = $"Total: {total:0.00} kr.";
@@ -92,8 +98,8 @@
         {
             string action = await DisplayActionSheet("Currency", "Cancel", null, "Danske Kroner", "Euro", "Dollars");
 
-            var tip = bill * tipPercentage / 100;
-            var total = bill + tip;
+            var tip = double.Parse(Tip.BillAmount) * double.Parse(Tip.TipPercentage) / 100;
+            var total = double.Parse(Tip.BillAmount) + tip;
 
             switch (action)
             {
