@@ -6,10 +6,15 @@
     xmlns:local="clr-namespace:TipCalc"
     xmlns:views="clr-namespace:TipCalc.Views"
     xmlns:modals="clr-namespace:TipCalc.Views.Modals"
+    xmlns:controls="clr-namespace:TipCalc.Controls"
     Title="TipCalc"
     Shell.FlyoutBehavior="Flyout">
+
+    <Shell.FlyoutHeader>
+        <controls:FlyoutHeader />
+    </Shell.FlyoutHeader>
     
-    
+
     <FlyoutItem Title="Home" Icon="home.png">
         <ShellContent Title="Home"
                       ContentTemplate="{DataTemplate local:MainPage}" />
