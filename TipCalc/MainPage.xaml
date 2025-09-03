@@ -29,6 +29,7 @@ TextChanged="OnBillChanged" VerticalOptions="Center" Grid.Column="1" Grid.Row="0
         <Button Text="Round Down" Clicked="OnRoundDownClicked" WidthRequest="150" Grid.Column="0" Grid.Row="7"/>
         <Button Text="Round Up" Clicked="OnRoundUpClicked" WidthRequest="150" Grid.Column="1" Grid.Row="7"/>
 
-        <Button Text="Im Feeling Lucky" Clicked="OnFeelingLuckyClicked" HorizontalOptions="Center" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2"/>
+        <Button Text="Im Feeling Lucky" Clicked="OnFeelingLuckyClicked" HorizontalOptions="Center" Grid.Column="0" Grid.Row="8"/>
+        <Button Text="Currency" Clicked="OnViewCurrencyClicked" HorizontalOptions="Center" Grid.Column="1" Grid.Row="8"/>
     </Grid>
 </ContentPage>
