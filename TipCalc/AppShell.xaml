@@ -24,4 +24,9 @@
         <ShellContent Title="Feedback"
                       ContentTemplate="{DataTemplate modals:FeedbackPage}" />
     </FlyoutItem>
+
+    <FlyoutItem Title="Rotation" Icon="feedback.png">
+        <ShellContent Title="Rotation"
+                  ContentTemplate="{DataTemplate views:RotationPage}" />
+    </FlyoutItem>
 </Shell>

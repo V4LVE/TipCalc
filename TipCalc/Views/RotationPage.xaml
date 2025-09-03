@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TipCalc.Views.RotationPage"
+             Title="RotationPage">
+    <VerticalStackLayout
+        Padding="20"
+        HorizontalOptions="Center"
+        Spacing="20"
+        VerticalOptions="Center"
+        WidthRequest="250"
+        BindingContext="{x:Reference AngleSlider}">
+        
+        <Slider
+            x:Name="AngleSlider"
+            Maximum="360"
+            Minimum="0"
+            Value="0" />
+
+        <Label FontSize="18" Text="{Binding Value, StringFormat='Angle = {0:0}°'}" />
+
+        <Entry
+            x:Name="AngleEntry"
+            Keyboard="Numeric"
+            Text="{Binding Value, Mode=TwoWay, StringFormat='{0:0}'}" />
+
+        <Label
+            FontSize="24"
+            HorizontalOptions="Center"
+            Rotation="{Binding Value}"
+            Text="{Binding Value, StringFormat='Rotation Angle = {0:0}°'}" />
+    </VerticalStackLayout>
+</ContentPage>
