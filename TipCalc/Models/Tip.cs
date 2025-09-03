@@ -12,12 +12,12 @@ namespace TipCalc.Models
         public string BillAmount { get; set; }
         public string TipAmount { get; set; }
         public string TotalAmount { get; set; }
-        public string TipPercentage { get; set; }
+        public double TipPercentage { get; set; }
 
 
        public void CalculateTip()
         {
-            TipAmount = (double.Parse(BillAmount) * double.Parse(TipPercentage) / 100).ToString();
+            TipAmount = (double.Parse(BillAmount) * TipPercentage / 100).ToString();
             TotalAmount = (double.Parse(BillAmount) + double.Parse(TipAmount)).ToString();
         }
     }

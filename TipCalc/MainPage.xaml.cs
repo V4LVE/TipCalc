@@ -15,7 +15,7 @@ namespace TipCalc
                 BillAmount = "100",
                 TipAmount = "0",
                 TotalAmount = "0",
-                TipPercentage = "15"
+                TipPercentage = 15
             };
             BindingContext = Tip;
         }
@@ -36,13 +36,13 @@ namespace TipCalc
 
             TipLabel.Text = $"Tip: {Tip.TipAmount} kr.";
             TotalLabel.Text = $"Total: {Tip.TotalAmount} kr.";
-            TipSlider.Value = int.Parse(Tip.TipPercentage);
+            TipSlider.Value = Tip.TipPercentage;
             PercentageLabel.Text = $"{Tip.TipPercentage}%";
         }
 
         void OnTipPercentageChanged(object sender, ValueChangedEventArgs e)
         {
-            Tip.TipPercentage = e.NewValue.ToString();
+            Tip.TipPercentage = e.NewValue;
             PercentageLabel.Text = $"{Tip.TipPercentage}%";
             CalculateTipAndUpdateUI();
         }
@@ -50,7 +50,7 @@ namespace TipCalc
         async void On15PercentClicked(object sender, EventArgs e)
         {
             await DisplayAlert("Alert", "You have tipped 15%", "OK");
-            Tip.TipPercentage = "15";
+            Tip.TipPercentage = 15;
             CalculateTipAndUpdateUI();
         }
 
@@ -60,12 +60,12 @@ namespace TipCalc
             if (!answer)
                 return;
 
-            Tip.TipPercentage = "20";
+            Tip.TipPercentage = 20;
             CalculateTipAndUpdateUI();
         }
         void OnRoundDownClicked(object sender, EventArgs e)
         {
-            var total = double.Parse(Tip.BillAmount) + (double.Parse(Tip.BillAmount) * double.Parse(Tip.TipPercentage) / 100);
+            var total = double.Parse(Tip.BillAmount) + (double.Parse(Tip.BillAmount) * Tip.TipPercentage / 100);
             var roundedTotal = Math.Floor(total / 10) * 10; // round down to nearest 10
             TipLabel.Text = $"Tip: {(roundedTotal - double.Parse(Tip.BillAmount)):0.00} kr.";
             TotalLabel.Text = $"Total: {roundedTotal:0.00} kr.";
@@ -73,7 +73,7 @@ namespace TipCalc
 
         void OnRoundUpClicked(object sender, EventArgs e)
         {
-            var total = double.Parse(Tip.BillAmount) + (double.Parse(Tip.BillAmount) * double.Parse(Tip.TipPercentage) / 100);
+            var total = double.Parse(Tip.BillAmount) + (double.Parse(Tip.BillAmount) * Tip.TipPercentage / 100);
             var roundedTotal = Math.Ceiling(total / 10) * 10; // round up to nearest 10
             TipLabel.Text = $"Tip: {(roundedTotal - double.Parse(Tip.BillAmount)):0.00} kr.";
             TotalLabel.Text = $"Total: {roundedTotal:0.00} kr.";
@@ -98,7 +98,7 @@ namespace TipCalc
         {
             string action = await DisplayActionSheet("Currency", "Cancel", null, "Danske Kroner", "Euro", "Dollars");
 
-            var tip = double.Parse(Tip.BillAmount) * double.Parse(Tip.TipPercentage) / 100;
+            var tip = double.Parse(Tip.BillAmount) * Tip.TipPercentage / 100;
             var total = double.Parse(Tip.BillAmount) + tip;
 
             switch (action)
