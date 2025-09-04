@@ -1,24 +1,68 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Maui;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace TipCalc.Models
 {
-    public class Tip
+    public class Tip : INotifyPropertyChanged
     {
-        public string BillAmount { get; set; }
-        public string TipAmount { get; set; }
-        public string TotalAmount { get; set; }
-        public double TipPercentage { get; set; }
+        private string _billAmount;
+        private string _tipAmount;
+        private string _totalAmount;
+        private double _tipPercentage;
 
 
-       public void CalculateTip()
+        public string BillAmount
+        {
+            get => _billAmount;
+            set
+            {
+                _billAmount = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public string TipAmount
+        {
+            get => _tipAmount;
+            set
+            {
+                _tipAmount = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public string TotalAmount
+        {
+            get => _totalAmount;
+            set
+            {
+                _totalAmount = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public double TipPercentage
+        {
+            get => _tipPercentage;
+            set
+            {
+                _tipPercentage = value;
+                RaisePropertyChanged();
+            }
+        }
+
+
+        public void CalculateTip()
         {
             TipAmount = (double.Parse(BillAmount) * TipPercentage / 100).ToString();
             TotalAmount = (double.Parse(BillAmount) + double.Parse(TipAmount)).ToString();
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void RaisePropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
