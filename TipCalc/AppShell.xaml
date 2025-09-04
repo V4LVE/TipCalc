@@ -34,4 +34,9 @@
         <ShellContent Title="Restaurant List"
               ContentTemplate="{DataTemplate views:RestaurantListPage}" />
     </FlyoutItem>
+
+    <FlyoutItem Title="Settings" Icon="feedback.png">
+        <ShellContent Title="Settings"
+          ContentTemplate="{DataTemplate views:SettingsPage}" />
+    </FlyoutItem>
 </Shell>

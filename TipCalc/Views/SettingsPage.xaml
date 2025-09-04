@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TipCalc.Views.SettingsPage"
+             xmlns:local="clr-namespace:TipCalc.Models"
+             Title="SettingsPage">
+
+    <TableView HasUnevenRows="True" Intent="Settings">
+        <TableRoot>
+            <TableSection Title="Tip Settings" BindingContext="{x:Reference Tip}" x:DataType="local:Tip">
+                <SwitchCell On="False" Text="Set Default Tip to 15" />
+                <EntryCell Label="Default Tip" Placeholder="15" Text="{Binding TipPercentage, Mode=TwoWay}" />
+            </TableSection>
+        </TableRoot>
+    </TableView>
+</ContentPage>
