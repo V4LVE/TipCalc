@@ -8,11 +8,10 @@
 
     <Grid RowDefinitions="*,auto,auto,9*,auto,auto,*,*,*" ColumnDefinitions="*,*" RowSpacing="10">
         <Label Text="Bill" VerticalOptions="Center" Grid.Column="0" Grid.Row="0" Padding="20,0,0,0"/>
-        <Entry x:Name="BillEntry" Keyboard="Numeric" Placeholder="Enter amount"
-TextChanged="OnBillChanged" VerticalOptions="Center" Grid.Column="1" Grid.Row="0"/>
+        <Entry Keyboard="Numeric" Placeholder="Enter amount" Text="{Binding BillAmount, Mode=TwoWay}" VerticalOptions="Center" Grid.Column="1" Grid.Row="0"/>
 
         <!--info-->
-        <Label x:Name="TipLabel" Text="{Binding TipAmount, StringFormat='Tip = {0:2} kr.'}" Grid.Column="0" Grid.Row="1" Padding="20,0,0,0"/>
+        <Label x:Name="TipLabel" Text="{Binding TipAmount, StringFormat='Tip = {0:1} kr.'}" Grid.Column="0" Grid.Row="1" Padding="20,0,0,0"/>
         <Label x:Name="TotalLabel" Text="{Binding TotalAmount, StringFormat='Total = {0:2} kr.'}" Grid.Column="0" Grid.Row="2" Padding="20,0,0,0"/>
 
         <!--Tip info-->
@@ -21,7 +20,7 @@ TextChanged="OnBillChanged" VerticalOptions="Center" Grid.Column="1" Grid.Row="0
 
         <Slider x:Name="TipSlider" 
         Minimum="0" Maximum="100"
-        Value="{Binding TipPercentage}" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2"/>
+        Value="{Binding TipPercentage, Mode=TwoWay}" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2"/>
 
         <!--Static Tip Buttons-->
         <Button Text="15%" Clicked="On15PercentClicked" WidthRequest="150" Grid.Column="0" Grid.Row="6"/>

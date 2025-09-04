@@ -17,6 +17,7 @@ namespace TipCalc.Models
             set
             {
                 _billAmount = value;
+                CalculateTip();
                 RaisePropertyChanged();
             }
         }
@@ -47,6 +48,7 @@ namespace TipCalc.Models
             set
             {
                 _tipPercentage = value;
+                CalculateTip();
                 RaisePropertyChanged();
             }
         }
@@ -54,6 +56,11 @@ namespace TipCalc.Models
 
         public void CalculateTip()
         {
+            if (string.IsNullOrEmpty(BillAmount))
+            {
+                return;
+            }
+
             TipAmount = (double.Parse(BillAmount) * TipPercentage / 100).ToString();
             TotalAmount = (double.Parse(BillAmount) + double.Parse(TipAmount)).ToString();
         }

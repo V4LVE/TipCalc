@@ -20,16 +20,6 @@ namespace TipCalc
             BindingContext = Tip;
         }
 
-        void OnBillChanged(object sender, TextChangedEventArgs e)
-        {
-            if (decimal.TryParse(BillEntry.Text, out var newBill) && newBill > 0)
-                Tip.BillAmount = newBill.ToString();
-            else
-                Tip.BillAmount = "0";
-
-            CalculateTipAndUpdateUI();
-        }
-
         void CalculateTipAndUpdateUI()
         {
             Tip.CalculateTip();
@@ -38,13 +28,6 @@ namespace TipCalc
             TotalLabel.Text = $"Total: {Tip.TotalAmount} kr.";
             TipSlider.Value = Tip.TipPercentage;
             PercentageLabel.Text = $"{Tip.TipPercentage}%";
-        }
-
-        void OnTipPercentageChanged(object sender, ValueChangedEventArgs e)
-        {
-            Tip.TipPercentage = e.NewValue;
-            PercentageLabel.Text = $"{Tip.TipPercentage}%";
-            CalculateTipAndUpdateUI();
         }
 
         async void On15PercentClicked(object sender, EventArgs e)
