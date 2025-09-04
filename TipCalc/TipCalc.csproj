@@ -77,6 +77,9 @@
 	  <MauiXaml Update="Views\Modals\FeedbackPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\RestaurantListPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\RotationPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -29,4 +29,9 @@
         <ShellContent Title="Rotation"
                   ContentTemplate="{DataTemplate views:RotationPage}" />
     </FlyoutItem>
+
+    <FlyoutItem Title="Restaurant List" Icon="feedback.png">
+        <ShellContent Title="Restaurant List"
+              ContentTemplate="{DataTemplate views:RestaurantListPage}" />
+    </FlyoutItem>
 </Shell>
