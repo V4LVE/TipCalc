@@ -61,8 +61,8 @@ namespace TipCalc.Models
                 return;
             }
 
-            TipAmount = (double.Parse(BillAmount) * TipPercentage / 100).ToString();
-            TotalAmount = (double.Parse(BillAmount) + double.Parse(TipAmount)).ToString();
+            TipAmount = (double.Parse(BillAmount) * TipPercentage / 100).ToString("0.00");
+            TotalAmount = (double.Parse(BillAmount) + double.Parse(TipAmount)).ToString("0.00");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
