@@ -14,8 +14,7 @@ namespace TipCalc
             {
                 BillAmount = "100",
                 TipAmount = "0",
-                TotalAmount = "0",
-                TipPercentage = 15
+                TotalAmount = "0"
             };
             BindingContext = Tip;
         }

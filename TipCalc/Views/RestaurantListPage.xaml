@@ -16,18 +16,22 @@
         <CarouselView.ItemTemplate>
             <DataTemplate x:DataType="model:Restaurant">
                 <Grid Padding="10">
-                    <Border Shadow="True" HeightRequest="125">
-                        <Grid Padding="0" ColumnDefinitions="125,*">
+                    <Border Shadow="True" HeightRequest="350" HorizontalOptions="Center" VerticalOptions="Center">
+                        <VerticalStackLayout Spacing="10" HorizontalOptions="Center" VerticalOptions="Center">
                             <Image
                                 Aspect="AspectFill"
-                                HeightRequest="125"
+                                HeightRequest="200"
+                                WidthRequest="200"
                                 Source="{Binding ImageUrl}"
-                                WidthRequest="125" />
-                            <VerticalStackLayout Grid.Column="1" Padding="10">
-                                <Label Text="{Binding Name}" />
-                                <Label Text="{Binding TipPercent, StringFormat='Tip Percent {0:0}%'}" />
-                            </VerticalStackLayout>
-                        </Grid>
+                                HorizontalOptions="Center" />
+                            <Label Text="{Binding Name}" 
+                                   FontAttributes="Bold"
+                                   FontSize="18"
+                                   HorizontalOptions="Center" />
+                            <Label Text="{Binding TipPercent, StringFormat='Tip Percent {0:0}%'}"
+                                   FontSize="14"
+                                   HorizontalOptions="Center" />
+                        </VerticalStackLayout>
                     </Border>
                 </Grid>
             </DataTemplate>
