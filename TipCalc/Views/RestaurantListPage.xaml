@@ -12,8 +12,8 @@
         <ToolbarItem Clicked="DeleteRes_Clicked" Text="Delete" />
     </ContentPage.ToolbarItems>
 
-    <CollectionView ItemsSource="{Binding RestaurantList}" SelectionMode="None">
-        <CollectionView.ItemTemplate>
+    <CarouselView ItemsSource="{Binding RestaurantList}">
+        <CarouselView.ItemTemplate>
             <DataTemplate x:DataType="model:Restaurant">
                 <Grid Padding="10">
                     <Border Shadow="True" HeightRequest="125">
@@ -31,6 +31,6 @@
                     </Border>
                 </Grid>
             </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+        </CarouselView.ItemTemplate>
+    </CarouselView>
 </ContentPage>
