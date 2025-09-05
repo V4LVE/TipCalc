@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TipCalc.Resources.Styles.CustomStyles">
+
+    <!-- 🎨 Color Palette -->
+    <Color x:Key="PrimaryColor">#4CAF50</Color>
+    <Color x:Key="SecondaryColor">#2196F3</Color>
+    <Color x:Key="AccentColor">#FFC107</Color>
+    <Color x:Key="BackgroundColor">#F5F7FA</Color>
+    <Color x:Key="CardBackgroundColor">#FFFFFF</Color>
+    <Color x:Key="TextPrimaryColor">#212121</Color>
+    <Color x:Key="TextSecondaryColor">#666666</Color>
+    <Color x:Key="DisabledColor">#BDBDBD</Color>
+
+    <!-- 🖋 Typography -->
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource AccentColor}" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+
+    <Style TargetType="Entry">
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource TextSecondaryColor}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource CardBackgroundColor}" />
+        <Setter Property="Margin" Value="10,0" />
+        <Setter Property="HeightRequest" Value="45" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <!-- ✨ Buttons -->
+    <Style TargetType="Button">
+        <Setter Property="FontFamily" Value="OpenSansSemiBold" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="HeightRequest" Value="48" />
+        <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="Margin" Value="8" />
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup Name="CommonStates">
+                    <VisualState Name="Normal" />
+                    <VisualState Name="Disabled">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="{StaticResource DisabledColor}" />
+                            <Setter Property="TextColor" Value="White" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <!-- 🎚 Slider -->
+    <Style TargetType="Slider">
+        <Setter Property="MinimumTrackColor" Value="{StaticResource SecondaryColor}" />
+        <Setter Property="MaximumTrackColor" Value="{StaticResource DisabledColor}" />
+        <Setter Property="ThumbColor" Value="{StaticResource AccentColor}" />
+        <Setter Property="Margin" Value="20,10" />
+    </Style>
+
+    <!-- Page styling -->
+    <Style TargetType="ContentPage">
+        <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}" />
+    </Style>
+
+</ResourceDictionary>
