@@ -56,13 +56,13 @@ namespace TipCalc.Models
 
         public void CalculateTip()
         {
-            if (string.IsNullOrEmpty(BillAmount))
+            if (string.IsNullOrEmpty(BillAmount) || !double.TryParse(BillAmount, out double bill) || bill <= 0)
             {
                 return;
             }
 
-            TipAmount = (double.Parse(BillAmount) * TipPercentage / 100).ToString("0.00");
-            TotalAmount = (double.Parse(BillAmount) + double.Parse(TipAmount)).ToString("0.00");
+            TipAmount = (bill * TipPercentage / 100).ToString("0.00");
+            TotalAmount = (bill + double.Parse(TipAmount)).ToString("0.00");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -3,8 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TipCalc.MainPage"
              xmlns:Models="clr-namespace:TipCalc.Models"
+             xmlns:converters="clr-namespace:TipCalc.Converters"
              Title="Home"
              x:DataType="Models:Tip">
+
+    <ContentPage.Resources>
+        <converters:PercentageConverter x:Key="PercentageConverter"/>
+        <converters:EntryNotNegativeValidatorConverter x:Key="EntryNotNegativeValidatorConverter"/>
+    </ContentPage.Resources>
 
     <Grid RowDefinitions="*,auto,auto,9*,auto,auto,*,*,*" ColumnDefinitions="*,*" RowSpacing="10">
         <Label Text="Bill" VerticalOptions="Center" Grid.Column="0" Grid.Row="0" Padding="20,0,0,0"/>
@@ -16,21 +22,21 @@
 
         <!--Tip info-->
         <Label Text="Tip Percentage" Grid.Column="0" Grid.Row="4" HorizontalOptions="Start"/>
-        <Label x:Name="PercentageLabel" Text="{Binding TipPercentage, StringFormat='{0:0}%'}" Grid.Column="1" Grid.Row="4" HorizontalOptions="End"/>
+        <Label x:Name="PercentageLabel" Text="{Binding TipPercentage, Converter={StaticResource PercentageConverter}}" Grid.Column="1" Grid.Row="4" HorizontalOptions="End"/>
 
         <Slider x:Name="TipSlider" 
         Minimum="0" Maximum="100"
         Value="{Binding TipPercentage, Mode=TwoWay}" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2"/>
 
         <!--Static Tip Buttons-->
-        <Button Text="15%" Clicked="On15PercentClicked" WidthRequest="150" Grid.Column="0" Grid.Row="6"/>
-        <Button Text="20%" Clicked="On20PercentClicked" WidthRequest="150" Grid.Column="1" Grid.Row="6"/>
+        <Button Text="15%" Clicked="On15PercentClicked" WidthRequest="150" Grid.Column="0" Grid.Row="6" IsEnabled="{Binding BillAmount, Converter={StaticResource EntryNotNegativeValidatorConverter}}"/>
+        <Button Text="20%" Clicked="On20PercentClicked" WidthRequest="150" Grid.Column="1" Grid.Row="6" IsEnabled="{Binding BillAmount, Converter={StaticResource EntryNotNegativeValidatorConverter}}"/>
 
         <!--Round tip Buttons-->
-        <Button Text="Round Down" Clicked="OnRoundDownClicked" WidthRequest="150" Grid.Column="0" Grid.Row="7"/>
-        <Button Text="Round Up" Clicked="OnRoundUpClicked" WidthRequest="150" Grid.Column="1" Grid.Row="7"/>
+        <Button Text="Round Down" Clicked="OnRoundDownClicked" WidthRequest="150" Grid.Column="0" Grid.Row="7" IsEnabled="{Binding BillAmount, Converter={StaticResource EntryNotNegativeValidatorConverter}}"/>
+        <Button Text="Round Up" Clicked="OnRoundUpClicked" WidthRequest="150" Grid.Column="1" Grid.Row="7" IsEnabled="{Binding BillAmount, Converter={StaticResource EntryNotNegativeValidatorConverter}}"/>
 
-        <Button Text="Im Feeling Lucky" Clicked="OnFeelingLuckyClicked" HorizontalOptions="Center" Grid.Column="0" Grid.Row="8"/>
-        <Button Text="Currency" Clicked="OnViewCurrencyClicked" HorizontalOptions="Center" Grid.Column="1" Grid.Row="8"/>
+        <Button Text="Im Feeling Lucky" Clicked="OnFeelingLuckyClicked" HorizontalOptions="Center" Grid.Column="0" Grid.Row="8" IsEnabled="{Binding BillAmount, Converter={StaticResource EntryNotNegativeValidatorConverter}}"/>
+        <Button Text="Currency" Clicked="OnViewCurrencyClicked" HorizontalOptions="Center" Grid.Column="1" Grid.Row="8" IsEnabled="{Binding BillAmount, Converter={StaticResource EntryNotNegativeValidatorConverter}}"/>
     </Grid>
 </ContentPage>
