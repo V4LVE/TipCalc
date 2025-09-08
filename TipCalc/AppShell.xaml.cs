@@ -1,5 +1,4 @@
-﻿using System.Windows.Input;
-using TipCalc.Views;
+﻿using TipCalc.Views;
 
 namespace TipCalc
 {
@@ -10,6 +9,7 @@ namespace TipCalc
             InitializeComponent();
 
             Routing.RegisterRoute(nameof(DetailsPage), typeof(DetailsPage));
+            Routing.RegisterRoute(nameof(MonkeyDetailsPage), typeof(MonkeyDetailsPage));
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Windows.Input;
 using TipCalc.Models;
 using TipCalc.Service;
+using TipCalc.Views;
 
 namespace TipCalc.ViewModels
 {
@@ -45,6 +46,7 @@ namespace TipCalc.ViewModels
             finally
             {
                 IsBusy = false;
+                IsRefreshing = false;
             }
         }
 
@@ -52,5 +54,17 @@ namespace TipCalc.ViewModels
         private Command _getMonkeysCommand;
         public ICommand GetMonkeysCommand =>
             _getMonkeysCommand ??= new Command(async () => await GetMonkeysAsync());
+
+        private Command goToDetailsCommand;
+        public ICommand GoToDetailsCommand => goToDetailsCommand ??= new Command<Monkey>(async (monkey) =>
+        {
+            if (monkey == null)
+                return;
+
+            await Shell.Current.GoToAsync(nameof(MonkeyDetailsPage), true, new Dictionary<string, object>
+    {
+        {"MyMonkey", monkey }
+    });
+        });
     }
 }

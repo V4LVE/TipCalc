@@ -25,6 +25,9 @@ namespace TipCalc
 
             builder.Services.AddSingleton<MonkeyPageViewModel, MonkeyPageViewModel>();
 
+            builder.Services.AddTransient<MonkeyDetailsPageViewModel>();
+            builder.Services.AddTransient<Views.MonkeyDetailsPage>();
+
             return builder.Build();
         }
     }

@@ -83,6 +83,9 @@
 	  <MauiXaml Update="Views\Modals\FeedbackPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\MonkeyDetailsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\MonkeyPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
