@@ -1,6 +1,6 @@
 ﻿using TipCalc.Models;
 
-namespace TipCalc
+namespace TipCalc.Views
 {
     public partial class MainPage : ContentPage
     {

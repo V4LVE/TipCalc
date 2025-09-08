@@ -12,7 +12,7 @@
     
     <FlyoutItem Title="Home" Icon="home.png">
         <ShellContent Title="Home"
-                      ContentTemplate="{DataTemplate local:MainPage}" />
+                      ContentTemplate="{DataTemplate views:MainPage}" />
     </FlyoutItem>
 
     <FlyoutItem Title="About" Icon="info.png">
@@ -33,5 +33,10 @@
     <FlyoutItem Title="Restaurant List" Icon="feedback.png">
         <ShellContent Title="Restaurant List"
               ContentTemplate="{DataTemplate views:RestaurantListPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Monkey List" Icon="feedback.png">
+        <ShellContent Title="Monkey List"
+          ContentTemplate="{DataTemplate views:MonkeyPage}" />
     </FlyoutItem>
 </Shell>

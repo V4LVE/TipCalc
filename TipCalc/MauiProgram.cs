@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using TipCalc.Service;
+using TipCalc.ViewModels;
 
 namespace TipCalc
 {
@@ -16,8 +18,12 @@ namespace TipCalc
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
+
+            builder.Services.AddSingleton<MonkeyService, MonkeyService>();
+
+            builder.Services.AddSingleton<MonkeyPageViewModel, MonkeyPageViewModel>();
 
             return builder.Build();
         }
