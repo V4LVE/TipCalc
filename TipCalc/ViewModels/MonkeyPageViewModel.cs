@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.ObjectModel;
+using System.Diagnostics;
 using TipCalc.Models;
 using TipCalc.Service;
 
@@ -8,7 +9,7 @@ namespace TipCalc.ViewModels
     {
         private MonkeyService _monkeyService;
 
-        public List<Monkey> Monkeys { get; set; }
+        public ObservableCollection<Monkey> Monkeys { get; set; }
 
         public MonkeyPageViewModel(MonkeyService monkeyService)
         {
