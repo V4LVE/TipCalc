@@ -5,7 +5,7 @@
              xmlns:model="clr-namespace:TipCalc.Models"
              xmlns:local="clr-namespace:TipCalc.Views"
              xmlns:viewmodel="clr-namespace:TipCalc.ViewModels"
-             Title="RestaurantListPage"
+             Title="{Binding Title}"
              x:DataType="viewmodel:MonkeyPageViewModel">
 
     <ContentPage.ToolbarItems>
