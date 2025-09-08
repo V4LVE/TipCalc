@@ -9,31 +9,38 @@
              x:DataType="viewmodel:MonkeyPageViewModel">
 
     <ContentPage.ToolbarItems>
-        
+
     </ContentPage.ToolbarItems>
 
-    <CollectionView ItemsSource="{Binding Monkeys}" SelectionMode="None">
-        <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="model:Monkey">
-                <Grid Padding="10">
-                    <Border Shadow="True" HeightRequest="125">
-                        <Grid Padding="0" ColumnDefinitions="125,*">
-                            <Image
-                                Aspect="AspectFill"
-                                HeightRequest="125"
-                                Source="{Binding Image}"
-                                WidthRequest="125" />
-                            <VerticalStackLayout Grid.Column="1" Padding="10">
-                                <Label Text="{Binding Name}" />
-                                <Label Text="{Binding Details}" />
-                                <Label Text="{Binding Population}" />
-                                <Label Text="{Binding Longitude}" />
-                                <Label Text="{Binding Latitude}" />
-                            </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <Button Text="Get Monkeys" Command="{Binding GetMonkeysCommand}"/>
+
+            <CollectionView ItemsSource="{Binding Monkeys}" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Monkey">
+                        <Grid Padding="10">
+                            <Border Shadow="True" HeightRequest="125">
+                                <Grid Padding="0" ColumnDefinitions="125,*">
+                                    <Image
+                    Aspect="AspectFill"
+                    HeightRequest="125"
+                    Source="{Binding Image}"
+                    WidthRequest="125" />
+                                    <VerticalStackLayout Grid.Column="1" Padding="10">
+                                        <Label Text="{Binding Name}" />
+                                        <Label Text="{Binding Details}" />
+                                        <Label Text="{Binding Population}" />
+                                        <Label Text="{Binding Longitude}" />
+                                        <Label Text="{Binding Latitude}" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
                         </Grid>
-                    </Border>
-                </Grid>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Windows.Input;
 using TipCalc.Models;
 using TipCalc.Service;
 
@@ -15,6 +16,7 @@ namespace TipCalc.ViewModels
         {
             _monkeyService = monkeyService;
             Title = "Monkey Finder";
+            Monkeys = new ObservableCollection<Monkey>();
         }
 
         public async Task GetMonkeysAsync()
@@ -45,5 +47,10 @@ namespace TipCalc.ViewModels
                 IsBusy = false;
             }
         }
+
+
+        private Command _getMonkeysCommand;
+        public ICommand GetMonkeysCommand =>
+            _getMonkeysCommand ??= new Command(async () => await GetMonkeysAsync());
     }
 }
