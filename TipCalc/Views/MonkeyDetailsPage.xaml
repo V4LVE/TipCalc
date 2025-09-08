@@ -33,8 +33,8 @@
             </Grid>
             <VerticalStackLayout Padding="10" Spacing="10">
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding Monkey.Details}" />
-                <Label Style="{StaticResource MediumLabel}" Text="{Binding Monkey.Location}" />
-                <Label Style="{StaticResource MediumLabel}" Text="{Binding Monkey.Population}" />
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Monkey.Location, StringFormat='Location: {0:0}'}" />
+                <Label Style="{StaticResource MediumLabel}" Text="{Binding Monkey.Population, StringFormat='Current Estimated Population: {0:0}'}" />
             </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
